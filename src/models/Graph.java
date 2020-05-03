@@ -40,6 +40,7 @@ public class Graph {
         return edges;
     }
 
+    //check if node a node is reachable or not
     public boolean isNodeReachable(Node node) {
         for (Edge edge : edges) {
             if (node == edge.getNodeOne() || node == edge.getNodeTwo()) {
@@ -78,11 +79,13 @@ public class Graph {
         return node == destination;
     }
 
+    //make a node from point
     public void addNode(Point coord) {
         Node node = new Node(coord);
         addNode(node);
     }
 
+    //add node to nodes (list)
     public void addNode(Node node) {
         node.setId(count++);
         nodes.add(node);
@@ -91,6 +94,7 @@ public class Graph {
         }
     }
 
+    //add edges to edge list
     public void addEdge(Edge new_edge) {
         boolean added = false;
         for (Edge edge : edges) {
@@ -104,6 +108,7 @@ public class Graph {
         }
     }
 
+    //delete Nodes from the list
     public void deleteNode(Node node) {
         List<Edge> delete = new ArrayList<>();
         for (Edge edge : edges) {
@@ -121,6 +126,7 @@ public class Graph {
         	redZoneNode.remove(node);
     }
 
+    //clear the graph
     public void clear() {
         count = 1;
         nodes.clear();

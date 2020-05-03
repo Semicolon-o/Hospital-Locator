@@ -10,7 +10,7 @@ public class Node {
     private java.util.List<Node> path;
 
     public Node(){}
-
+    //Constructor
     public Node(int id){
         this.id = id;
     }
@@ -51,6 +51,7 @@ public class Node {
         return id;
     }
 
+    //return Node ID
     @Override
     public String toString() {
         return "Node " + id;

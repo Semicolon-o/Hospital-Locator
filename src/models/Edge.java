@@ -5,6 +5,7 @@ public class Edge {
     private Node two;
     private int weight = 1;
 
+    //Constructor
     public Edge(Node one, Node two){
         this.one = one;
         this.two = two;
@@ -34,6 +35,7 @@ public class Edge {
         return (one ==edge.one && two ==edge.two) || (one ==edge.two && two ==edge.one) ;
     }
 
+    //returns the id of the two nodes that edges connects
     @Override
     public String toString() {
         return "Edge ~ "
