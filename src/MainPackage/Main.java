@@ -5,7 +5,7 @@ import gui.MainWindow;
 import javax.swing.*;
 
 public class Main {
-
+    public static JFrame j;
     public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -13,7 +13,7 @@ public class Main {
             System.out.println("Failed To Start The Application!");
             System.out.println(ex.getMessage());
         }
-        JFrame j = new JFrame();
+        j = new JFrame();
         j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         j.setExtendedState(JFrame.MAXIMIZED_BOTH);
         j.setUndecorated(true);
