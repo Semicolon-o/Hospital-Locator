@@ -189,7 +189,7 @@ public class Algorithm {
         }
         if (flag == 1 && path.contains(Graph.destination) == true) {
             JOptionPane.showMessageDialog(null,
-                    "NO PATH AVAILABLE!",
+                    "No Path Available!",
                     "Warning Panel!",
                     JOptionPane.WARNING_MESSAGE);
             Graph.destination = NearestHospital;
