@@ -13,13 +13,16 @@ public class Main {
             System.out.println("Failed To Start The Application!");
             System.out.println(ex.getMessage());
         }
+        //Main Window Screen on Starting of Application
         j = new JFrame();
         j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //Full Screen Set-Up
         j.setExtendedState(JFrame.MAXIMIZED_BOTH);
         j.setUndecorated(true);
         j.add(new MainWindow());
         j.setVisible(true);
         j.setTitle("Path Tracker");
+        //This is to Show Information Screen on Start-Up.
         JOptionPane.showMessageDialog(null,
                 Resources.Constants.read,
                 "Information Panel",
