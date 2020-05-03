@@ -1,7 +1,7 @@
-package gui;
+package Graphics;
 
-import algo.DijkstraAlgorithm;
-import models.Graph;
+import Models.Graph;
+import Models.Algorithm;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -9,8 +9,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-public class MainWindow extends JPanel implements resources.Constants {
-
+public class MainWindow extends JPanel implements Resources.Constants {
+    private static final long serialVersionUID = 1L;
     private Graph graph;
     private GraphPanel graphPanel;
 
@@ -37,7 +37,7 @@ public class MainWindow extends JPanel implements resources.Constants {
 	info.setForeground(new Color(255, 0, 0));      
 	info.setVerticalAlignment(SwingConstants.CENTER);
 	JLabel status=new JLabel();
-	status.setText("                                                                                                                                                 No.of Hospitals: "+models.Graph.hospitalNode.size());
+	status.setText("                                                                                                                                                 No.of Hospitals: "+ Models.Graph.hospitalNode.size());
 	status.setFont(new Font("Serif", Font.BOLD, 16));
 	status.setForeground(new Color(255, 0, 0));      
 	status.setVerticalAlignment(SwingConstants.CENTER);
@@ -54,8 +54,8 @@ public class MainWindow extends JPanel implements resources.Constants {
 	panel.add(status);
 	panel.add(status1);
 	MainPackage.Main.j.add(panel,BorderLayout.NORTH);
-	status.setText("                                                                                                                                                  No.of Hopitals: "+models.Graph.hospitalNode.size());
-	status1.setText("                                                                                                                                           No.of Red Zone Areas: "+models.Graph.redZoneNode.size());
+	status.setText("                                                                                                                                                  No.of Hopitals: "+ Models.Graph.hospitalNode.size());
+	status1.setText("                                                                                                                                           No.of Red Zone Areas: "+ Models.Graph.redZoneNode.size());
     }
 
     private void setButtons() {
@@ -78,16 +78,16 @@ public class MainWindow extends JPanel implements resources.Constants {
 
         info.addActionListener((ActionEvent e) -> {
             JOptionPane.showMessageDialog(null,
-                    resources.Constants.read,
+                    Resources.Constants.read,
                     "Information Panel",
                     JOptionPane.QUESTION_MESSAGE);
         });
 
         run.addActionListener((ActionEvent e) -> {
-            DijkstraAlgorithm dijkstraAlgorithm = new DijkstraAlgorithm(graph);
+            Algorithm algorithm = new Algorithm(graph);
             try {
-                dijkstraAlgorithm.run();
-                graphPanel.setPath(dijkstraAlgorithm.getDestinationPath());
+                algorithm.run();
+                graphPanel.setPath(algorithm.getDestinationPath());
             } catch (IllegalStateException ise) {
                 JOptionPane.showMessageDialog(null, ise.getMessage());
             }
@@ -99,7 +99,7 @@ public class MainWindow extends JPanel implements resources.Constants {
     private void setupIcon(JButton button, String img) {
         try {
             Image icon = ImageIO.read(getClass().getResource(
-                    "/resources/" + img + ".png"));
+                    "/Resources/" + img + ".png"));
             ImageIcon imageIcon = new ImageIcon(icon);
             button.setIcon(imageIcon);
             button.setBorderPainted(false);

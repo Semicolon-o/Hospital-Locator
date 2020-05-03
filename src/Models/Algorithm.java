@@ -1,13 +1,10 @@
-package algo;
+package Models;
 
-import gui.GraphPanel;
+import Graphics.GraphPanel;
 import java.util.*;
 import javax.swing.JOptionPane;
-import models.Edge;
-import models.Graph;
-import models.Node;
 
-public class DijkstraAlgorithm {
+public class Algorithm {
     //Initialize variables
 
     private boolean safe = false;
@@ -31,7 +28,7 @@ public class DijkstraAlgorithm {
     };
 
     //Dijkstra's Algorithm initialization
-    public DijkstraAlgorithm(Graph graph) {
+    public Algorithm(Graph graph) {
         this.graph = graph;
         predecessors = new HashMap<>();
         distances = new HashMap<>();

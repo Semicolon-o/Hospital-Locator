@@ -1,6 +1,6 @@
 package MainPackage;
 
-import gui.MainWindow;
+import Graphics.MainWindow;
 
 import javax.swing.*;
 
@@ -21,7 +21,7 @@ public class Main {
         j.setVisible(true);
         j.setTitle("Path Tracker");
         JOptionPane.showMessageDialog(null,
-                resources.Constants.read,
+                Resources.Constants.read,
                 "Information Panel",
                 JOptionPane.QUESTION_MESSAGE);
     }

@@ -1,20 +1,19 @@
-package gui;
+package Graphics;
 
-import models.Edge;
-import models.Graph;
-import models.Node;
+import Models.Edge;
+import Models.Graph;
+import Models.Node;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.*;
 import java.util.List;
 
 
 public class GraphPanel extends JPanel implements MouseListener, MouseMotionListener {
-
+	private static final long serialVersionUID = 1L;
 	private DrawUtils drawUtils;
 
 	private Graph graph;

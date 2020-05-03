@@ -1,7 +1,7 @@
-package gui;
+package Graphics;
 
-import models.Edge;
-import models.Node;
+import Models.Edge;
+import Models.Node;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
