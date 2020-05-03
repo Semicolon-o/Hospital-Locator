@@ -54,7 +54,7 @@ public class DrawUtils {
                 Integer.valueOf(colorStr.substring(3, 5), 16),
                 Integer.valueOf(colorStr.substring(5, 7), 16));
     }
-
+    //Methods to draw the various types of Nodes, the paths, and defining hover functions
     public void drawWeight(Edge edge) {
         Point from = edge.getNodeOne().getCoord();
         Point to = edge.getNodeTwo().getCoord();
