@@ -32,7 +32,7 @@ public class MainWindow extends JPanel implements Resources.Constants {
     }
 
    public static void setTopPanel() {
-	JLabel info=new JLabel("                                          COVID-19 Shortest Path Checker");
+	JLabel info=new JLabel("                                                 COVID-19 Hospital Locator");
 	info.setFont(new Font("Serif", Font.BOLD, 34));
 	info.setForeground(new Color(255, 0, 0));      
 	info.setVerticalAlignment(SwingConstants.CENTER);
