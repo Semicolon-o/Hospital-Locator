@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-public class MainWindow extends JPanel implements Resources.Constants {
+public class MainWindow extends JPanel implements Resources.Constants { //Invoking Interface Constants from Resource Folder
     private static final long serialVersionUID = 1L;
     private Graph graph;
     private GraphPanel graphPanel;
@@ -18,7 +18,8 @@ public class MainWindow extends JPanel implements Resources.Constants {
         super.setLayout(new BorderLayout());
         setGraphPanel();
     }
-
+	
+    // This function sets up the main graph screen window.
     private void setGraphPanel() {
         graph = new Graph();
         graphPanel = new GraphPanel(graph);
@@ -31,6 +32,7 @@ public class MainWindow extends JPanel implements Resources.Constants {
         setButtons();
     }
 
+   // This function sets up the Top Black Panel in the main Window Screen	
    public static void setTopPanel() {
 	JLabel info=new JLabel("                                                 COVID-19 Hospital Locator");
 	info.setFont(new Font("Serif", Font.BOLD, 34));
@@ -57,7 +59,7 @@ public class MainWindow extends JPanel implements Resources.Constants {
 	status.setText("                                                                                                                                                  No.of Hopitals: "+ Models.Graph.hospitalNode.size());
 	status1.setText("                                                                                                                                           No.of Red Zone Areas: "+ Models.Graph.redZoneNode.size());
     }
-
+    // Adding Functionality to each of the Button
     private void setButtons() {
         JButton run = new JButton();
         setupIcon(run, "run");
@@ -71,7 +73,8 @@ public class MainWindow extends JPanel implements Resources.Constants {
         buttonPanel.add(reset);
         buttonPanel.add(run);
         buttonPanel.add(info);
-
+	
+	//On ActionEventListener, which performs the respective calls on clicking of certain button.    
         reset.addActionListener((ActionEvent e) -> {
             graphPanel.reset();
         });
@@ -96,6 +99,8 @@ public class MainWindow extends JPanel implements Resources.Constants {
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
+    // Loading the images for the button from the resource folder.	
+	
     private void setupIcon(JButton button, String img) {
         try {
             Image icon = ImageIO.read(getClass().getResource(
