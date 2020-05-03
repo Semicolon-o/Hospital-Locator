@@ -8,6 +8,7 @@ import models.Graph;
 import models.Node;
 
 public class DijkstraAlgorithm {
+    //Initialize variables
 
     private boolean safe = false;
     private String message = null;
@@ -20,6 +21,7 @@ public class DijkstraAlgorithm {
     private int flag = 0;
     private Node NearestHospital = null;
 
+    //compare nodes on baises of distances
     public class NodeComparator implements Comparator<Node> {
 
         @Override
@@ -28,6 +30,7 @@ public class DijkstraAlgorithm {
         }
     };
 
+    //Dijkstra's Algorithm initialization
     public DijkstraAlgorithm(Graph graph) {
         this.graph = graph;
         predecessors = new HashMap<>();
@@ -41,6 +44,7 @@ public class DijkstraAlgorithm {
         safe = evaluate();
     }
 
+    //check if the graph is connected as well as source and destination are in the graph
     private boolean evaluate() {
         if (graph.getSource() == null) {
             message = "Source must be present in the graph";
@@ -62,6 +66,7 @@ public class DijkstraAlgorithm {
         return true;
     }
 
+    //run Dijkstra's Algorithm
     public void run() throws IllegalStateException {
         if (!safe) {
             throw new IllegalStateException(message);
@@ -83,6 +88,7 @@ public class DijkstraAlgorithm {
             predecessors.put(adjacent, source);
             unvisited.add(adjacent);
         }
+        //visit all edges
         while (!unvisited.isEmpty()) {
 
             Node current = unvisited.poll();
@@ -109,6 +115,7 @@ public class DijkstraAlgorithm {
 
     }
 
+    //update Distance between nodes and its neighbour
     private void updateDistance(Node node) {
         int distance = distances.get(node);
 
@@ -137,6 +144,7 @@ public class DijkstraAlgorithm {
         return node == edge.getNodeTwo() ? edge.getNodeOne() : edge.getNodeTwo();
     }
 
+    //get neigbhbours of a Node and return the edge list 
     private List<Edge> getNeighbors(Node node) {
         List<Edge> neighbors = new ArrayList<>();
 
@@ -165,6 +173,7 @@ public class DijkstraAlgorithm {
         }
     }
 
+    //Get Path between node and source
     public List<Node> getPath(Node node) {
         List<Node> path = new ArrayList<>();
         Node current = node;
