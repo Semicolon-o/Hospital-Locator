@@ -115,14 +115,19 @@ public class Graph {
             edges.remove(edge);
         }
         nodes.remove(node);
+        if(isHospitalNode(node))
+        	hospitalNode.remove(node);
+        if(isRedZoneNode(node))
+        	redZoneNode.remove(node);
     }
 
     public void clear() {
         count = 1;
         nodes.clear();
         edges.clear();
-        solved = false;
-
+	hospitalNode.clear();
+        redZoneNode.clear();
+	solved = false;
         source = null;
         destination = null;
     }
@@ -138,7 +143,6 @@ public class Graph {
         if (!redZoneNode.contains(node)) {
             redZoneNode.add(node);
         }
-        System.out.println(redZoneNode.size());
     }
 
     public void removeRedZone(Node node) {
@@ -158,6 +162,5 @@ public class Graph {
 
 	public void removeHospitalNode(Node node) {
 		hospitalNode.remove(node);
-		System.out.println(hospitalNode.size());
 	}
 }
