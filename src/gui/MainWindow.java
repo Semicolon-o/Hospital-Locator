@@ -31,20 +31,32 @@ public class MainWindow extends JPanel implements resources.Constants {
         setButtons();
     }
 
-    private void setTopPanel() {
-        JLabel info = new JLabel("COVID-19 Shortest Path Checker");
-        Font f = info.getFont();
-        info.setFont(new Font("Serif", Font.BOLD, 34));
-        info.setForeground(new Color(255, 0, 0));
-        info.setVerticalAlignment(SwingConstants.CENTER);
-
-        JPanel panel = new JPanel();
-        panel.setBackground(new Color(7, 0, 0));
-        panel.add(info);
-        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        panel.setPreferredSize(new Dimension(300, 60));
-        add(panel, BorderLayout.NORTH);
-    }
+    	public static void setTopPanel() {
+		JLabel info=new JLabel("                                          COVID-19 Shortest Path Checker");
+		info.setFont(new Font("Serif", Font.BOLD, 34));
+		info.setForeground(new Color(255, 0, 0));      
+		info.setVerticalAlignment(SwingConstants.CENTER);
+		JLabel status=new JLabel();
+		status.setText("                                                                                                                                                 No.of Hospitals: "+models.Graph.hospitalNode.size());
+		status.setFont(new Font("Serif", Font.BOLD, 16));
+		status.setForeground(new Color(255, 0, 0));      
+		status.setVerticalAlignment(SwingConstants.CENTER);
+		JLabel status1=new JLabel();
+		status1.setFont(new Font("Serif", Font.BOLD, 16));
+		status1.setForeground(new Color(255, 0, 0));      
+		status1.setVerticalAlignment(SwingConstants.CENTER);
+		JPanel panel=new JPanel();
+		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		panel.setPreferredSize(new Dimension(300, 100));
+		panel.setBackground(new Color(7,0,0));
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		panel.add(info);
+		panel.add(status);
+		panel.add(status1);
+		MainPackage.Main.j.add(panel,BorderLayout.NORTH);
+		status.setText("                                                                                                                                                  No.of Hopitals: "+models.Graph.hospitalNode.size());
+		status1.setText("                                                                                                                                           No.of Red Zone Areas: "+models.Graph.redZoneNode.size());
+	}
 
     private void setButtons() {
         JButton run = new JButton();
