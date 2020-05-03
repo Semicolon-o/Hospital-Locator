@@ -38,7 +38,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 		hoveredEdge = null;
 		repaint();
 	}
-
+	//Method to draw the graph according to its characteristic node and path
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -81,7 +81,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 				drawUtils.drawNode(node);
 		}
 	}
-
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		MainWindow.setTopPanel();
@@ -92,7 +92,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 				break;
 			}
 		}
-
+		//Defining the shortcuts to perform various operation
 		if(selected!=null) {
 			if(e.isControlDown() && e.isShiftDown()){
 				graph.deleteNode(selected);
@@ -226,7 +226,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 	public void mouseExited(MouseEvent e) {
 
 	}
-
+	//Method to define the repositioning of nodes by dragging
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		hoveredNode = null;
